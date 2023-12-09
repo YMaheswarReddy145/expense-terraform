@@ -23,3 +23,4 @@ state.tfvars(env-prod)
        ls -A  --> ls .terraform --> rm -f .terrraform/terraform.tfstate
        terraform init -backend-config=env-prod/state.tfvars     ---> now it initialize successfully with out any error
 
+Please refer session 38 last minutes regrading the expense-terraform build through jenkins and destroy after the use.
