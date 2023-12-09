@@ -7,3 +7,19 @@ state.tfvars(env-prod)
      in state.tf file
   So if we want it to not ask the s3 bucket and execute it we have t provide the below command
      terraform init -backend-config=env-dev/state.tfvars
+
+  Now after executing the above command for dev environment and if i rum for the prod environment, it push an error,
+   telling that we have initialized a remote backend and asking to reconfigure the things
+     terraform init -backend-config=env-prod/state.tfvars
+
+  Actually it is a slight problem all the time in order to deal with that when we are actually on the same directory
+  dealing with two environments terraform has a solution there.
+
+  the solution is terraform work spaces we can create a work space and start executing there, but we are not going to use in our case
+
+  We can directly deal it by giving ls -A command and then ls .terraform there w ecn see the terraform.tfstate now we
+  directly delete by giving the rm -f .terraform/terraform.tfstate so it will delete the existing and we acn run for the
+  prod environment
+       ls -A  --> ls .terraform --> rm -f .terrraform/terraform.tfstate
+       terraform init -backend-config=env-prod/state.tfvars     ---> now it initialize successfully with out any error
+
