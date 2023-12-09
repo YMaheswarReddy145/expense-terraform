@@ -3,3 +3,7 @@ Now we are creating the project structure of expense using the vpc
 In our case to store the remote state data we can't directly declare it in state.tf file because we have multiple
 environments so to store the data based on the environment we have declaring separately in state.tfvars(env-dev) and
 state.tfvars(env-prod)
+  Now if i give terraform init directly it will ask to name the s3 bucket, because of empty background we have provided
+     in state.tf file
+  So if we want it to not ask the s3 bucket and execute it we have t provide the below command
+     terraform init -backend-config=env-dev/state.tfvars
